@@ -13,3 +13,10 @@ def days_to_units(num_of_days, custom_message):
 days_to_units(567, "Test 1")
 days_to_units(12, "Test 2")
 
+def scope_check(num_of_days):
+    my_var = "Variable inside function"
+    print(name_of_unit) # function body
+    print(num_of_days)
+    print(my_var)
+
+scope_check(20)
