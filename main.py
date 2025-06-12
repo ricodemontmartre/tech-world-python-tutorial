@@ -5,6 +5,7 @@ def days_to_units(number_of_days: int) -> int:
     return number_of_days * calculation_to_units
 
 def validate_and_execute(input_value):
+    # Validate input and execute the conversion
     try:
         user_input_int = int(input_value)
         if user_input_int > 0:
@@ -13,6 +14,10 @@ def validate_and_execute(input_value):
             print("You entered 0 days, which is not valid.")
         else:
             print("Please enter a positive number of days.")
+        """
+        else:
+            print("Please enter a positive number of days.")
+        """
     except ValueError:
         print("Please enter an integer value.")
 
