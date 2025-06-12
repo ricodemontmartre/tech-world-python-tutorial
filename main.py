@@ -18,5 +18,8 @@ def validate_and_execute(input_value):
 
 user_input = ""
 while user_input != "exit":
-    user_input = input("Enter a number of days:\n")
-    validate_and_execute(user_input)
+    number_of_days_list = input("Enter a list of number of days separated by a comma:\n")
+    print(type(number_of_days_list.split(", ")))
+    print(number_of_days_list.split(", "))
+    for number_of_days in number_of_days_list.split(", "):
+        validate_and_execute(number_of_days)
