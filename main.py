@@ -48,6 +48,7 @@ def validate_input(input_value):
 validate_input(user_input)
 
 def validate_and_execute(input_value):
+    """
     if input_value.isdigit():
         user_input_int = int(input_value)
         if user_input_int > 0:
@@ -55,6 +56,17 @@ def validate_and_execute(input_value):
         elif user_input_int == 0:
             print("You entered 0 days, which is not valid.")
     else:
+        print("Please enter an integer value.")
+    """
+    try:
+        user_input_int = int(input_value)
+        if user_input_int > 0:
+            print(f"{user_input_int} days is {user_input_int * calcution_to_units} {name_of_unit}")
+        elif user_input_int == 0:
+            print("You entered 0 days, which is not valid.")
+        else:
+            print("Please enter a positive number of days.")
+    except ValueError:
         print("Please enter an integer value.")
 
 validate_and_execute(user_input)
