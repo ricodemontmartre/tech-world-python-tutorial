@@ -1,23 +1,22 @@
-# import helpers
-# import helpers as h
-# from helpers import validate_and_execute, user_input_message
+import openpyxl
 
-import os
-import logging
+inv_file = openpyxl.load_workbook("inventory.xlsx")
+print(inv_file["Sheet1"])
+product_list = inv_file["Sheet1"]
 
-print(os.name)
+products_by_supplier = {}
 
-logger = logging.getLogger("MAIN")
-logger.error("This is an error message")
+print(product_list.max_row)
 
-"""
-user_input = ""
-while user_input != "exit":
-    user_input = input(user_input_message)
-    days_and_unit = user_input.split(":")
-    print(days_and_unit)
-    day_and_unit_dictionnary = {"days": days_and_unit[0], "unit": days_and_unit[1]}
-    print(day_and_unit_dictionnary)
-    # helpers.validate_and_execute(day_and_unit_dictionnary)
-    validate_and_execute(day_and_unit_dictionnary)
-"""
+for product_row in range(2, product_list.max_row + 1):
+    supplier_name = product_list.cell(product_row, 4).value
+    print(supplier_name)
+
+    if supplier_name in products_by_supplier:
+        current_num_product = products_by_supplier.get(supplier_name)
+        products_by_supplier[supplier_name] = current_num_product + 1
+    else:
+        print("new supplier added")
+        products_by_supplier[supplier_name] = 1
+
+print(products_by_supplier)
